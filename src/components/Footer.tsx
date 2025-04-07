@@ -1,8 +1,10 @@
 
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
   
   const scrollToTop = () => {
     window.scrollTo({
@@ -17,7 +19,7 @@ const Footer = () => {
         {/* Scroll to top button */}
         <button 
           onClick={scrollToTop}
-          className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-white p-3 rounded-full shadow-lg border border-border hover:bg-primary/5 transition-colors"
+          className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg border border-border hover:bg-primary/5 transition-colors"
           aria-label="Voltar ao topo"
         >
           <ArrowUp size={20} className="text-primary" />
@@ -29,7 +31,7 @@ const Footer = () => {
               <span className="text-primary">Port</span>folio
             </h2>
             <p className="text-muted-foreground mt-2">
-              Desenvolvedor Full Stack com foco em Front-end
+              {t("desenvolvedor")}
             </p>
           </div>
 
@@ -60,14 +62,14 @@ const Footer = () => {
 
         <div className="mt-8 pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm mb-4 md:mb-0">
-            © {currentYear} Meu Portfolio. Todos os direitos reservados.
+            © {currentYear} Meu Portfolio. {t("direitos")}
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Termos de Uso
+              {t("termos")}
             </a>
             <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Política de Privacidade
+              {t("privacidade")}
             </a>
           </div>
         </div>

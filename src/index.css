@@ -73,7 +73,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans scroll-smooth;
+    @apply bg-background text-foreground font-sans scroll-smooth transition-colors duration-300;
   }
 
   html {
@@ -87,7 +87,7 @@
   }
 
   .project-card {
-    @apply bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300;
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300;
   }
 
   .btn-primary {
@@ -99,10 +99,17 @@
   }
   
   .bg-grid-pattern {
+    @apply dark:bg-gray-900;
     background-image: 
       linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
     background-size: 24px 24px;
+  }
+
+  .dark .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
   }
 }
 
