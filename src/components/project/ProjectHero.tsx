@@ -12,7 +12,7 @@ interface ProjectHeroProps {
 
 const ProjectHero = ({ project, currentImage, language }: ProjectHeroProps) => {
   return (
-    <div className="relative w-full h-[50vh] bg-gradient-to-b from-secondary to-background overflow-hidden">
+    <div className="relative w-full h-[55vh] bg-gradient-to-b from-secondary to-background overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
           src={`../${project.images[currentImage]}`}
@@ -45,7 +45,7 @@ const ProjectHero = ({ project, currentImage, language }: ProjectHeroProps) => {
           ))}
         </div>
 
-        <div className="flex gap-4">
+        <div className="flex gap-4 pb-5">
           {project.liveUrl && (
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
               <Button className="flex items-center gap-2">
