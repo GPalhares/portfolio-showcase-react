@@ -94,7 +94,7 @@ const ProjectsSection = () => {
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.slice(0, 4).map((tag, index) => (
+                    {project.tags.slice(0, 12).map((tag, index) => (
                       <span
                         key={index}
                         className="px-2 py-1 text-xs font-medium bg-secondary rounded-full border border-primary/10"

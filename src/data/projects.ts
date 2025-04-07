@@ -1,4 +1,3 @@
-
 export interface TechDecision {
   title: string;
   description: string;
@@ -28,122 +27,276 @@ export interface ProjectDetail {
 export const projectsData: ProjectDetail[] = [
   {
     id: 1,
-    title: "E-commerce Moderno",
-    description: "Loja virtual completa com React, Redux e integração com API de pagamentos.",
-    longDescription: "Um e-commerce completo desenvolvido com as mais modernas tecnologias front-end e back-end. O projeto inclui um catálogo de produtos, carrinho de compras, sistema de pagamento integrado com Stripe, autenticação de usuários e painel administrativo.",
-    technicalDetails: "Este projeto foi construído com uma arquitetura de microsserviços, separando a API de produtos, o sistema de pagamentos e o serviço de autenticação. Utilizei Docker para containerização e implantação contínua via GitHub Actions.",
+    title: 'Cardapiro',
+    description:
+      'Solução completa para criação de cardápios digitais, com foco em performance, SEO e experiência do usuário.',
+    longDescription:
+      'O Cardapiro é uma plataforma desenvolvida para restaurantes que desejam criar e gerenciar cardápios digitais de forma prática e eficiente. Criado de forma independente, o projeto já conta com usuários reais testando a versão gratuita. A aplicação inclui recursos como personalização de cardápio, QR Code, integração com pedidos via WhatsApp e controle de destaques e promoções. Tudo foi construído com foco em performance, acessibilidade e otimização para mecanismos de busca (SEO).',
+    technicalDetails:
+      'Desenvolvido com React no front-end e Node.js no back-end, utilizando Firebase como banco de dados e autenticação. A aplicação é otimizada com técnicas de SEO e boas práticas de performance validadas pelo Google Lighthouse. Todo o desenvolvimento e infraestrutura foram pensados para garantir escalabilidade e uma boa experiência do usuário, mesmo em dispositivos móveis.',
     techDecisions: [
       {
-        title: "Redux para Gerenciamento de Estado",
-        description: "Escolhi Redux para gerenciar o estado global da aplicação devido à complexidade do carrinho de compras e ao fluxo de autenticação."
+        title: 'Gerenciamento de Estado com Context API 🗂️',
+        description:
+          'Utilizei o Context API para gerenciar o estado global da aplicação. Foram criados três contextos principais: Users Context, Tasks Context e Auth Context. Essa estrutura evita requisições desnecessárias e garante persistência entre páginas.',
       },
       {
-        title: "Stripe para Pagamentos",
-        description: "A integração com Stripe foi selecionada por sua robustez, segurança e facilidade de implementação, além de suportar múltiplas moedas."
+        title: 'Custom Hooks 🪝',
+        description:
+          'Implementei Custom Hooks para requisições de dados e lógica de autenticação. Isso reduziu o uso de prop drilling e melhorou a organização do código.',
       },
       {
-        title: "Node.js no Backend",
-        description: "O backend foi construído com Express.js para criar APIs RESTful eficientes e escaláveis."
-      }
+        title: 'Layout Mobile-First 📱',
+        description:
+          'Desenvolvido com abordagem Mobile-First para garantir responsividade. Todos os elementos foram pensados para oferecer uma boa experiência em dispositivos móveis.',
+      },
     ],
     challenges: [
       {
-        title: "Performance com Muitos Produtos",
-        description: "Implementei paginação e lazy loading para melhorar a performance do catálogo com grande volume de produtos."
+        title: 'Performance com Muitos Produtos 🍃',
+        description:
+          'Implementei paginação e lazy loading para melhorar a performance do catálogo com grande volume de produtos e imagens. Foi necessário otimizar o carregamento de imagens para manter uma boa experiência de navegação.',
       },
       {
-        title: "Segurança nas Transações",
-        description: "Utilizei tokens JWT e HTTPS para garantir a segurança das informações de pagamento e dados dos usuários."
-      }
+        title: 'Segurança nas Transações 🔒',
+        description:
+          'Utilizei tokens JWT e HTTPS para garantir a segurança das informações de pagamento e dados dos usuários, além de implementar autenticação segura com Single Sign-On via Google e Facebook.',
+      },
+      {
+        title: 'Integração com Redes Sociais 🤝',
+        description:
+          'A integração com autenticação do Facebook apresentou diversos desafios técnicos, mas  está sendo finalizada com sucesso, oferecendo mais praticidade e segurança no login dos usuários.',
+      },
+      {
+        title: 'Otimização de Performance para SEO 🚀',
+        description:
+          'Atingir uma boa nota no Google Lighthouse foi um dos maiores desafios do projeto, principalmente devido ao uso de imagens. Após várias otimizações, consegui alcançar uma pontuação de 90%, garantindo uma aplicação rápida e acessível.',
+      },
     ],
     images: [
-      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1561069934-eee225952461?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      'public/images/cardapiro/1.png',
+      'public/images/cardapiro/2.png',
+      'public/images/cardapiro/3.png',
+      'public/images/cardapiro/4.png',
+      'public/images/cardapiro/5.png',
+      'public/images/cardapiro/6.png',
+      'public/images/cardapiro/7.png',
+      'public/images/cardapiro/8.png',
     ],
-    tags: ["React", "Redux", "Node.js", "Stripe", "Docker", "MongoDB"],
-    liveUrl: "#",
-    githubUrl: "#",
-    completionDate: "Março 2023"
+    tags: [
+      'React',
+      'Javascript',
+      'Node.js',
+      'Asaas',
+      'Docker',
+      'Firebase',
+      'SEO',
+      'Lighthouse',
+      'Single Sign-On',
+    ],
+    liveUrl: 'https://cardapiro.com.br/',
+    completionDate: 'Em andamento',
   },
   {
     id: 2,
-    title: "App de Dashboard",
-    description: "Dashboard administrativo com visualizações de dados e gráficos interativos.",
-    longDescription: "Um dashboard administrativo completo para visualização e análise de dados empresariais. O aplicativo apresenta múltiplos gráficos interativos, tabelas de dados filtráveis e exportáveis, e um sistema de alertas em tempo real.",
-    technicalDetails: "Este projeto foi desenvolvido com React e TypeScript para garantir tipagem forte e melhor manutenção. Utilizei o Tailwind CSS para estilização e Chart.js para os gráficos interativos. O backend foi construído com Firebase para autenticação e armazenamento de dados.",
+    title: 'HC App',
+    description:
+      'Plataforma de aplicativos white-label para cassinos com mais de 3.000 apps e 1 milhão de acessos mensais.',
+    longDescription:
+      'HC App é uma plataforma robusta de aplicativos white-label, criada para influencers de cassinos online se conectarem com sua audiência. Através da plataforma, os influenciadores podem fazer lives via youtube, enviar notificações, promover campanhas personalizadas, divulgar estratégias de apostas esportivas e interagir em tempo real com seus seguidores. Atualmente, conta com mais de 3.000 apps ativos e mais de 1 milhão de acessos mensais.',
+    technicalDetails:
+      'O sistema foi desenvolvido com foco em escalabilidade e performance. Utilizei React e Javascript no frontend, com Firebase para autenticação, banco de dados em tempo real e notificações push. A estrutura modular permite a criação automatizada de novos apps personalizados para cada influencer. A interface foi construída com Material UI, Next.js, React.js, garantindo rapidez e responsividade.',
     techDecisions: [
       {
-        title: "TypeScript para Tipo Seguro",
-        description: "O TypeScript foi escolhido para garantir uma base de código mais robusta e prevenir erros comuns durante o desenvolvimento."
+        title: 'Arquitetura Modular 🧩',
+        description:
+          'A plataforma foi projetada para suportar múltiplos apps personalizados com base em um core compartilhado, permitindo rápida replicação e manutenção centralizada.',
       },
       {
-        title: "Chart.js para Visualização",
-        description: "Utilizei o Chart.js pela sua flexibilidade na criação de gráficos interativos e responsivos que se adaptam a diferentes tamanhos de tela."
+        title: 'Gerenciamento com Context API 🗂️',
+        description:
+          'Utilizei Context API para manter o estado global e evitar requisições desnecessárias em diferentes áreas da plataforma, como autenticação, conteúdo dinâmico e configurações por influencer.',
       },
       {
-        title: "Firebase Realtime Database",
-        description: "O Firebase foi selecionado para fornecer atualizações em tempo real dos dados, crucial para um dashboard dinâmico."
-      }
+        title: 'Integração com Firebase 🔥',
+        description:
+          'O Firebase foi utilizado para autenticação, Firestore em tempo real e notificações push, garantindo uma experiência dinâmica e instantânea.',
+      },
+      {
+        title: 'Notificações em Tempo Real 📡',
+        description:
+          'Implementei ferramentas para que os influencers possam enviar mensagens instantâneas para seus usuários, criando uma experiência interativa e engajadora.',
+      },
+      {
+        title: 'Painel Admin White-Label 👤',
+        description:
+          'Cada influencer possui um painel administrativo exclusivo com controle total sobre conteúdos, promoções, notificações e personalização do seu próprio app.',
+      },
     ],
     challenges: [
       {
-        title: "Otimização de Performance",
-        description: "Implementei memo, useMemo e useCallback para otimizar a renderização de componentes complexos com muitos dados."
+        title: 'Escalabilidade com Muitos Aplicativos ⚙️',
+        description:
+          'Gerenciar milhares de apps ativos com performance e estabilidade foi um grande desafio, exigindo otimizações contínuas no banco de dados e no front end.',
       },
       {
-        title: "Filtros Complexos",
-        description: "Desenvolvi um sistema avançado de filtros que permite aos usuários criar consultas personalizadas para análise de dados."
-      }
+        title: 'Alta Conectividade em Tempo Real 📶',
+        description:
+          'Manter notificações simultâneas para milhares de usuários conectados exigiu uma arquitetura eficiente e escalável com Firebase e WebSockets.',
+      },
+      {
+        title: 'Integração com Sistema de Pagamentos e Tokenização 🔐',
+        description:
+          'Implementei um sistema de pagamentos completo utilizando a API do Asaas, com salvamento seguro do token do cartão de crédito. Foi um processo complexo que exigiu atenção redobrada à segurança, validação de dados sensíveis e conformidade com boas práticas de proteção de dados.',
+      },
     ],
     images: [
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1543286386-2e659306cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      'public/images/hcapp/1.png',
+      'public/images/hcapp/2.png',
+      'public/images/hcapp/3.png',
+      'public/images/hcapp/4.png',
     ],
-    tags: ["React", "Tailwind", "Chart.js", "Firebase", "TypeScript"],
-    liveUrl: "#",
-    githubUrl: "#",
-    completionDate: "Julho 2023"
+    tags: [
+      'React',
+      'Firebase',
+      'Javascript',
+      'Material UI',
+      'WebSockets',
+      'Next.js',
+    ],
+    liveUrl: 'https://painel.hcapp.com.br/admin',
+    completionDate: 'Janeiro 2025',
   },
   {
     id: 3,
-    title: "Rede Social",
-    description: "Plataforma de rede social com autenticação, posts e mensagens em tempo real.",
-    longDescription: "Uma rede social moderna com recursos avançados como feed personalizado, sistema de mensagens em tempo real, notificações push, e compartilhamento de conteúdo multimídia. O aplicativo é totalmente responsivo e funciona em dispositivos móveis e desktop.",
-    technicalDetails: "Construí este aplicativo com React no frontend, Socket.io para comunicação em tempo real, e uma API RESTful com Node.js/Express. O banco de dados utilizado foi MongoDB para armazenar publicações, usuários e mensagens.",
+    title: 'VEFORMA',
+    description:
+      'Sistema white-label de e-commerce com visualização interativa de produtos em 3D e realidade aumentada.',
+    longDescription:
+      'O VEFORMA é uma plataforma white-label voltada para e-commerces que desejam oferecer experiências imersivas de compra por meio de realidade aumentada. Com suporte à exibição de modelos 3D interativos, o sistema permite que os consumidores visualizem os produtos em escala real diretamente do navegador, aumentando a confiança na compra e, consequentemente, a taxa de conversão.',
+    technicalDetails:
+      'Participei do projeto VEFORMA nos primeiros meses, sendo responsável pela estrutura inicial do sistema. Utilizei React, Next.js e TypeScript para construir a base do projeto, incluindo a integração com a biblioteca modelViewer para renderização de modelos 3D. A arquitetura foi pensada para ser responsiva, SEO-friendly e preparada para suportar grandes volumes de tráfego, com suporte a múltiplos domínios personalizados e rotas dinâmicas por cliente.',
+
     techDecisions: [
       {
-        title: "Socket.io para Tempo Real",
-        description: "Implementei Socket.io para fornecer mensagens e notificações instantâneas sem a necessidade de atualizar a página."
+        title: 'Exibição Interativa com modelViewer 🧊',
+        description:
+          'Utilizei a biblioteca modelViewer do Google para renderizar modelos 3D em tempo real no navegador com suporte a AR (realidade aumentada) via dispositivos móveis.',
       },
       {
-        title: "AWS S3 para Armazenamento",
-        description: "Utilizei o Amazon S3 para armazenamento de arquivos multimídia devido à sua escalabilidade e confiabilidade."
+        title: 'Arquitetura White-Label 🏷️',
+        description:
+          'A estrutura modular permite que múltiplas lojas compartilhem a mesma base de código, cada uma com seu domínio, tema e catálogo de produtos personalizado.',
       },
       {
-        title: "JWT para Autenticação",
-        description: "Escolhi JSON Web Tokens para autenticação segura e stateless, facilitando a escalabilidade da aplicação."
-      }
+        title: 'Renderização com SSR e SEO-Friendly ⚙️',
+        description:
+          'Utilizei Next.js com Server-Side Rendering (SSR) e geração de páginas estáticas para garantir performance e otimização de SEO em todas as páginas de produto.',
+      },
+      {
+        title: 'Integração com Gateways de Pagamento 💳',
+        description:
+          'Incluí suporte a diferentes métodos de pagamento e checkout transparente, com planos de expansão para integração com plataformas como Asaas.',
+      },
+      {
+        title: 'Painel de Controle do Cliente 🧑‍💼',
+        description:
+          'Cada cliente possui um painel de administração para gerenciar seus produtos, modelos 3D, pedidos e configurações do site.',
+      },
     ],
     challenges: [
       {
-        title: "Escalabilidade",
-        description: "Projetei a arquitetura para suportar milhares de usuários simultâneos usando balanceamento de carga e cache."
+        title: 'Suporte Multiplataforma com Modelos 3D 📱',
+        description:
+          'Ajustar a renderização de modelos 3D para diferentes tamanhos de tela e sistemas operacionais (iOS/Android/Desktop) foi desafiador, especialmente mantendo a performance e a responsividade.',
       },
       {
-        title: "Privacidade e Segurança",
-        description: "Implementei controles granulares de privacidade que permitem aos usuários determinar quem pode ver seu conteúdo."
-      }
+        title: 'Gerenciamento de Recursos Pesados 🔄',
+        description:
+          'O carregamento otimizado de arquivos .glb e .usdz exigiu técnicas como compressão, pré-carregamento seletivo e lazy loading para manter a fluidez da navegação.',
+      },
+      {
+        title: 'Customização White-Label Automatizada ⚙️',
+        description:
+          'Foi necessário criar uma lógica robusta de roteamento dinâmico e customização por cliente, mantendo segurança e performance mesmo com múltiplas lojas ativas simultaneamente.',
+      },
     ],
     images: [
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      'public/images/veforma/1.png',
+      'public/images/veforma/2.png',
+      'public/images/veforma/3.png',
+      'public/images/veforma/4.png',
+      'public/images/veforma/5.png',
+      'public/images/veforma/6.png',
+      'public/images/veforma/7.png',
     ],
-    tags: ["React", "Firebase", "Socket.io", "CSS", "MongoDB", "AWS"],
-    liveUrl: "#",
-    githubUrl: "#",
-    completionDate: "Janeiro 2024"
-  }
+    tags: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'modelViewer',
+      '3D',
+      'White-label',
+    ],
+    completionDate: 'Janeiro 2025',
+  },
+  {
+    id: 4,
+    title: 'Plataforma de Checkout',
+    description:
+      'Sistema de checkout customizável para e-commerces, com layout dinâmico e integração com pagamentos.',
+    longDescription:
+      'Essa plataforma foi idealizada para oferecer uma experiência de finalização de compra mais fluida, rápida e personalizável. Atuei nesse projeto part-time ao longo da minha trajetória na HC App Software e Tecnologia, sendo responsável pela estruturação base do sistema. Apesar do contrato com a empresa contratante ter sido encerrado antes da entrega final, o projeto contou com diversas soluções modernas inspiradas em grandes plataformas de checkout.',
+    technicalDetails:
+      'Utilizei React e JavaScript no frontend para construir uma interface moderna e flexível. No backend, usei Node.js com MongoDB para estruturar um sistema seguro e escalável. A criação do layout foi feita com base em protótipos no Figma aprovados pela empresa contratada, buscando sempre uma experiência intuitiva e responsiva.',
+    techDecisions: [
+      {
+        title: 'Layout Dinâmico e Intuitivo 🧭',
+        description:
+          'O design do checkout foi fortemente inspirado em experiências consolidadas no mercado, com foco em simplicidade, clareza nas etapas de compra e alta conversão.',
+      },
+      {
+        title: 'Componentização Flexível com React ⚛️',
+        description:
+          'Estruturei os componentes para serem reutilizáveis e configuráveis, possibilitando adaptações rápidas para diferentes e-commerces.',
+      },
+      {
+        title: 'Backend com Node.js e MongoDB 🔧',
+        description:
+          'Implementei a base da API para receber e tratar dados de pedidos, carrinho e pagamento, garantindo escalabilidade e estrutura segura para os dados.',
+      },
+      {
+        title: 'Colaboração com Design via Figma 🎨',
+        description:
+          'Trabalhei junto aos designers utilizando Figma como ferramenta central de comunicação e validação de layout, garantindo fidelidade visual ao implementá-los.',
+      },
+    ],
+    challenges: [
+      {
+        title: 'Layout Dinâmico para Vários Cenários de Checkout 🧩',
+        description:
+          'Construir um sistema visualmente flexível, capaz de se adaptar a diferentes tipos de produto e jornada de compra, foi um desafio técnico e de UX.',
+      },
+      {
+        title: 'Integração Inicial com Gateways de Pagamento 💳',
+        description:
+          'Estruturei a base para integrações com gateways de pagamento, prevendo futuras expansões como checkout transparente e suporte a carteiras digitais.',
+      },
+    ],
+    images: [
+      'public/images/checkout/1.png',
+      'public/images/checkout/2.png',
+      'public/images/checkout/3.png',
+    ],
+    tags: [
+      'React',
+      'Node.js',
+      'JavaScript',
+      'MongoDB',
+      'Checkout',
+      'UX',
+      'Figma',
+    ],
+    completionDate: 'Incompleto (Contrato encerrado em 2024)',
+  },
 ];

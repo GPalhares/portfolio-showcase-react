@@ -31,12 +31,13 @@ const ContactSection = () => {
     locationValue: language === 'pt-BR' ? 'Patos de Minas - MG' : 'Brazil',
     socialMedia: language === 'pt-BR' ? 'Redes Sociais' : 'Social Links',
 
+    sendMessage: language === 'pt-BR' ? 'Envie uma Mensagem' : 'Send a Message',
     name: language === 'pt-BR' ? 'Nome / Empresa' : 'Name / Company',
     namePlaceholder: language === 'pt-BR' ? 'Seu Nome' : 'Your Name',
     emailPlaceholder: language === 'pt-BR' ? 'Seu Email' : 'Your E-mail',
-    topic: language === 'pt-BR' ? 'Assunto' : 'Topic',
+    topic: language === 'pt-BR' ? 'Assunto' : 'Subject',
     topicPlaceholder:
-      language === 'pt-BR' ? 'Assunto da mensagem' : 'Message topic',
+      language === 'pt-BR' ? 'Assunto da mensagem' : 'Message subject',
     message: language === 'pt-BR' ? 'Mensagem' : 'Message',
     messagePlaceholder:
       language === 'pt-BR'
@@ -140,7 +141,7 @@ const ContactSection = () => {
                 </div>
 
                 <div className="pt-4">
-                  <p className="font-medium mb-4">Redes Sociais</p>
+                  <p className="font-medium mb-4">{translations.socialMedia}</p>
                   <div className="flex gap-3">
                     <a
                       href="#"
@@ -174,7 +175,7 @@ const ContactSection = () => {
               <div className="h-2 bg-gradient-to-r from-primary to-blue-700"></div>
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-6">
-                  Envie uma Mensagem
+                  {translations.sendMessage}
                 </h3>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -183,14 +184,14 @@ const ContactSection = () => {
                         htmlFor="name"
                         className="block text-sm font-medium"
                       >
-                        Nome
+                        {translations.name}
                       </label>
                       <Input
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Seu nome"
+                        placeholder={translations.namePlaceholder}
                         className="border-border/60 focus:border-primary"
                         required
                       />
@@ -208,7 +209,7 @@ const ContactSection = () => {
                         type="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="seu@email.com"
+                        placeholder={translations.emailPlaceholder}
                         className="border-border/60 focus:border-primary"
                         required
                       />
@@ -220,14 +221,14 @@ const ContactSection = () => {
                       htmlFor="subject"
                       className="block text-sm font-medium"
                     >
-                      Assunto
+                      {translations.topic}
                     </label>
                     <Input
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      placeholder="Assunto da mensagem"
+                      placeholder={translations.topicPlaceholder}
                       className="border-border/60 focus:border-primary"
                       required
                     />
@@ -238,14 +239,14 @@ const ContactSection = () => {
                       htmlFor="message"
                       className="block text-sm font-medium"
                     >
-                      Mensagem
+                      {translations.message}
                     </label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Escreva sua mensagem aqui..."
+                      placeholder={translations.messagePlaceholder}
                       rows={5}
                       className="border-border/60 focus:border-primary resize-none"
                       required
@@ -257,7 +258,7 @@ const ContactSection = () => {
                     className="btn-primary w-full flex items-center gap-2 group"
                   >
                     <Send size={16} />
-                    Enviar Mensagem
+                    {translations.buttonSent}
                     <ArrowRight
                       size={14}
                       className="ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"

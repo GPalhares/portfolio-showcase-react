@@ -1,18 +1,20 @@
-
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useTheme } from "@/contexts/ThemeContext";
-import { useLanguage } from "@/contexts/LanguageContext";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import ProjectHero from "@/components/project/ProjectHero";
-import ProjectGallery from "@/components/project/ProjectGallery";
-import ProjectAbout from "@/components/project/ProjectAbout";
-import ProjectTechDecisions from "@/components/project/ProjectTechDecisions";
-import ProjectChallenges from "@/components/project/ProjectChallenges";
-import ProjectSidebar from "@/components/project/ProjectSidebar";
-import ProjectNotFound from "@/components/project/ProjectNotFound";
-import { projectsData, ProjectDetail as ProjectDetailType } from "@/data/projects";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useTheme } from '@/contexts/ThemeContext';
+import { useLanguage } from '@/contexts/LanguageContext';
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
+import ProjectHero from '@/components/project/ProjectHero';
+import ProjectGallery from '@/components/project/ProjectGallery';
+import ProjectAbout from '@/components/project/ProjectAbout';
+import ProjectTechDecisions from '@/components/project/ProjectTechDecisions';
+import ProjectChallenges from '@/components/project/ProjectChallenges';
+import ProjectSidebar from '@/components/project/ProjectSidebar';
+import ProjectNotFound from '@/components/project/ProjectNotFound';
+import {
+  projectsData,
+  ProjectDetail as ProjectDetailType,
+} from '@/data/projects';
 
 const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -40,12 +42,12 @@ const ProjectDetail = () => {
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
-      
+
       <main className="flex-1">
-        <ProjectHero 
-          project={project} 
+        <ProjectHero
+          project={project}
           currentImage={currentImage}
-          language={language} 
+          language={language}
         />
 
         {/* Content area */}
@@ -53,7 +55,7 @@ const ProjectDetail = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main content - 2/3 width on large screens */}
             <div className="lg:col-span-2 space-y-10">
-              <ProjectGallery 
+              <ProjectGallery
                 project={project}
                 currentImage={currentImage}
                 setCurrentImage={setCurrentImage}
@@ -61,24 +63,24 @@ const ProjectDetail = () => {
               />
 
               <ProjectAbout project={project} language={language} />
-              
+
               <ProjectTechDecisions project={project} language={language} />
-              
+
               <ProjectChallenges project={project} language={language} />
             </div>
 
             {/* Sidebar - 1/3 width on large screens */}
             <div>
-              <ProjectSidebar 
-                project={project} 
-                otherProjects={projectsData} 
-                language={language} 
+              <ProjectSidebar
+                project={project}
+                otherProjects={projectsData}
+                language={language}
               />
             </div>
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );
