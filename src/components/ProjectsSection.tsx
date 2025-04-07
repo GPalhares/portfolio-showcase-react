@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Github, ExternalLink, Code } from "lucide-react";
+import { Github, ExternalLink, Code, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface Project {
@@ -45,26 +45,39 @@ const projects: Project[] = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="section bg-secondary">
+    <section id="projects" className="section py-24 bg-gradient-to-b from-secondary to-background">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Meus Projetos</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
+          <div>
+            <div className="inline-block mb-2 px-4 py-1 bg-primary/10 text-primary font-medium rounded-full">
+              Portfolio
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold">Projetos Recentes</h2>
+          </div>
+          <p className="text-muted-foreground max-w-lg mt-4 md:mt-0">
             Conheça alguns dos projetos que desenvolvi utilizando as mais recentes
             tecnologias web para criar interfaces dinâmicas e funcionais.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <Card key={project.id} className="project-card group h-full flex flex-col">
-              <div className="relative overflow-hidden h-48">
+          {projects.map((project, index) => (
+            <Card 
+              key={project.id} 
+              className="project-card group h-full flex flex-col hover:shadow-lg transition-all duration-300 border-0 overflow-hidden"
+              style={{ 
+                transformStyle: "preserve-3d", 
+                transform: `perspective(1000px) rotateY(0deg)`,
+                transition: "transform 0.5s ease"
+              }}
+            >
+              <div className="relative overflow-hidden h-52">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 flex items-end justify-center p-4 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 flex items-end justify-center p-6 transition-opacity duration-300">
                   <div className="flex gap-3">
                     {project.githubUrl && (
                       <a 
@@ -89,32 +102,39 @@ const ProjectsSection = () => {
                   </div>
                 </div>
               </div>
-              <CardContent className="flex-1 flex flex-col">
-                <div className="pt-6 pb-4 flex-1">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+              <CardContent className="flex-1 flex flex-col p-6">
+                <div className="pt-2 pb-4 flex-1">
+                  <div className="flex justify-between items-start">
+                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                    <span className="text-primary text-xs font-mono px-2 py-1 bg-primary/5 rounded">#{String(index + 1).padStart(2, '0')}</span>
+                  </div>
                   <p className="text-muted-foreground mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, index) => (
                       <span 
                         key={index} 
-                        className="px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
+                        className="px-2 py-1 text-xs font-medium bg-secondary rounded-full border border-primary/10"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
-                <Button variant="outline" className="w-full flex items-center justify-center gap-2 mt-auto">
+                <Button variant="outline" className="w-full flex items-center justify-center gap-2 mt-auto group">
                   <Code size={16} />
                   Ver Detalhes
+                  <ArrowRight size={14} className="ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </Button>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className="mt-14 text-center">
-          <Button className="btn-primary">Ver Mais Projetos</Button>
+        <div className="mt-16 text-center">
+          <Button className="btn-primary group">
+            Ver Todos Projetos
+            <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+          </Button>
         </div>
       </div>
     </section>
