@@ -2,6 +2,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Github, ExternalLink, Code, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Project {
   id: number;
@@ -44,19 +46,30 @@ const projects: Project[] = [
 ];
 
 const ProjectsSection = () => {
+  const { language } = useLanguage();
+  
+  const translations = {
+    portfolio: language === 'pt-BR' ? 'Portfolio' : 'Portfolio',
+    recentProjects: language === 'pt-BR' ? 'Projetos Recentes' : 'Recent Projects',
+    description: language === 'pt-BR' 
+      ? 'Conheça alguns dos projetos que desenvolvi utilizando as mais recentes tecnologias web para criar interfaces dinâmicas e funcionais.'
+      : 'Explore some of the projects I\'ve developed using the latest web technologies to create dynamic and functional interfaces.',
+    viewDetails: language === 'pt-BR' ? 'Ver Detalhes' : 'View Details',
+    allProjects: language === 'pt-BR' ? 'Ver Todos Projetos' : 'View All Projects'
+  };
+  
   return (
     <section id="projects" className="section py-24 bg-gradient-to-b from-secondary to-background">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div>
             <div className="inline-block mb-2 px-4 py-1 bg-primary/10 text-primary font-medium rounded-full">
-              Portfolio
+              {translations.portfolio}
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold">Projetos Recentes</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">{translations.recentProjects}</h2>
           </div>
           <p className="text-muted-foreground max-w-lg mt-4 md:mt-0">
-            Conheça alguns dos projetos que desenvolvi utilizando as mais recentes
-            tecnologias web para criar interfaces dinâmicas e funcionais.
+            {translations.description}
           </p>
         </div>
 
@@ -120,11 +133,13 @@ const ProjectsSection = () => {
                     ))}
                   </div>
                 </div>
-                <Button variant="outline" className="w-full flex items-center justify-center gap-2 mt-auto group">
-                  <Code size={16} />
-                  Ver Detalhes
-                  <ArrowRight size={14} className="ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                </Button>
+                <Link to={`/project/${project.id}`} className="w-full">
+                  <Button variant="outline" className="w-full flex items-center justify-center gap-2 mt-auto group">
+                    <Code size={16} />
+                    {translations.viewDetails}
+                    <ArrowRight size={14} className="ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           ))}
@@ -132,7 +147,7 @@ const ProjectsSection = () => {
 
         <div className="mt-16 text-center">
           <Button className="btn-primary group">
-            Ver Todos Projetos
+            {translations.allProjects}
             <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
