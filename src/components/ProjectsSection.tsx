@@ -4,46 +4,7 @@ import { Github, ExternalLink, Code, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  liveUrl?: string;
-  githubUrl?: string;
-}
-
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "E-commerce Moderno",
-    description: "Loja virtual completa com React, Redux e integração com API de pagamentos.",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    tags: ["React", "Redux", "Node.js", "Stripe"],
-    liveUrl: "#",
-    githubUrl: "#"
-  },
-  {
-    id: 2,
-    title: "App de Dashboard",
-    description: "Dashboard administrativo com visualizações de dados e gráficos interativos.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    tags: ["React", "Tailwind", "Chart.js", "Firebase"],
-    liveUrl: "#",
-    githubUrl: "#"
-  },
-  {
-    id: 3,
-    title: "Rede Social",
-    description: "Plataforma de rede social com autenticação, posts e mensagens em tempo real.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    tags: ["React", "Firebase", "Socket.io", "CSS"],
-    liveUrl: "#",
-    githubUrl: "#"
-  }
-];
+import { projectsData } from "@/data/projects";
 
 const ProjectsSection = () => {
   const { language } = useLanguage();
@@ -74,7 +35,7 @@ const ProjectsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projectsData.map((project, index) => (
             <Card 
               key={project.id} 
               className="project-card group h-full flex flex-col hover:shadow-lg transition-all duration-300 border-0 overflow-hidden"
@@ -86,7 +47,7 @@ const ProjectsSection = () => {
             >
               <div className="relative overflow-hidden h-52">
                 <img
-                  src={project.image}
+                  src={project.images[0]}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -123,7 +84,7 @@ const ProjectsSection = () => {
                   </div>
                   <p className="text-muted-foreground mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, index) => (
+                    {project.tags.slice(0, 4).map((tag, index) => (
                       <span 
                         key={index} 
                         className="px-2 py-1 text-xs font-medium bg-secondary rounded-full border border-primary/10"
