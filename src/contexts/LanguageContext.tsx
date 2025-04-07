@@ -21,8 +21,8 @@ const translations: Translations = {
   // Footer
   desenvolvedor: {
     'pt-BR':
-      'Desenvolvedor Full Stack focado em soluções escaláveis, com forte impacto em performance e geração de valor',
-    en: 'Full Stack Developer focused on scalable solutions, with strong impact on performance and value creation',
+      'Desenvolvedor Front End focado em soluções escaláveis, com forte impacto em performance e geração de valor',
+    en: 'Front End Developer focused on scalable solutions, with strong impact on performance and value creation',
   },
 
   direitos: {

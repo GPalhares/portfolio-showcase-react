@@ -101,11 +101,12 @@ const Navbar = () => {
               </span>
             </Toggle>
           </div>
-
-          <Button className="btn-primary flex items-center gap-2">
-            <Download size={16} />
-            {t('downloadCv')}
-          </Button>
+          <a href="/assets/Gabriel Palhares FrontEnd.pdf" download>
+            <Button className="btn-primary flex items-center gap-2">
+              <Download size={16} />
+              {t('downloadCv')}
+            </Button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
