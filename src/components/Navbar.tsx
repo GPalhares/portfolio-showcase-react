@@ -91,13 +91,13 @@ const Navbar = () => {
             
             {/* Botão de Idioma */}
             <Toggle
-              aria-label={language === "pt" ? t("ingles") : t("portugues")}
+              aria-label={language === "pt-BR" ? t("ingles") : t("portugues")}
               pressed={language === "en"}
               onPressedChange={toggleLanguage}
               className="bg-background/10 hover:bg-accent/30 px-3"
             >
               <Globe size={18} />
-              <span className="ml-1 text-xs font-medium">{language === "pt" ? "PT" : "EN"}</span>
+              <span className="ml-1 text-xs font-medium">{language === "pt-BR" ? "PT" : "EN"}</span>
             </Toggle>
           </div>
           
@@ -121,7 +121,7 @@ const Navbar = () => {
           
           {/* Botão de Idioma Mobile */}
           <Toggle
-            aria-label={language === "pt" ? t("ingles") : t("portugues")}
+            aria-label={language === "pt-BR" ? t("ingles") : t("portugues")}
             pressed={language === "en"}
             onPressedChange={toggleLanguage}
             className="bg-background/10 hover:bg-accent/30"

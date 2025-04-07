@@ -1,11 +1,11 @@
 
 import { createContext, useContext, useState } from "react";
 
-type Language = "pt" | "en";
+type Language = "pt-BR" | "en"; // Atualizando o tipo para "pt-BR" em vez de "pt"
 
 type Translations = {
   [key: string]: {
-    pt: string;
+    "pt-BR": string;
     en: string;
   };
 };
@@ -13,25 +13,25 @@ type Translations = {
 // Traduções básicas iniciais
 const translations: Translations = {
   // Navbar
-  "inicio": { pt: "Início", en: "Home" },
-  "projetos": { pt: "Projetos", en: "Projects" },
-  "habilidades": { pt: "Habilidades", en: "Skills" },
-  "contato": { pt: "Contato", en: "Contact" },
-  "downloadCv": { pt: "Download CV", en: "Download CV" },
+  "inicio": { "pt-BR": "Início", en: "Home" },
+  "projetos": { "pt-BR": "Projetos", en: "Projects" },
+  "habilidades": { "pt-BR": "Habilidades", en: "Skills" },
+  "contato": { "pt-BR": "Contato", en: "Contact" },
+  "downloadCv": { "pt-BR": "Download CV", en: "Download CV" },
   
   // Footer
-  "desenvolvedor": { pt: "Desenvolvedor Full Stack com foco em Front-end", en: "Full Stack Developer focusing on Front-end" },
-  "direitos": { pt: "Todos os direitos reservados", en: "All rights reserved" },
-  "termos": { pt: "Termos de Uso", en: "Terms of Use" },
-  "privacidade": { pt: "Política de Privacidade", en: "Privacy Policy" },
+  "desenvolvedor": { "pt-BR": "Desenvolvedor Full Stack com foco em Front-end", en: "Full Stack Developer focusing on Front-end" },
+  "direitos": { "pt-BR": "Todos os direitos reservados", en: "All rights reserved" },
+  "termos": { "pt-BR": "Termos de Uso", en: "Terms of Use" },
+  "privacidade": { "pt-BR": "Política de Privacidade", en: "Privacy Policy" },
   
   // Tema
-  "temaClaro": { pt: "Tema Claro", en: "Light Mode" },
-  "temaEscuro": { pt: "Tema Escuro", en: "Dark Mode" },
+  "temaClaro": { "pt-BR": "Tema Claro", en: "Light Mode" },
+  "temaEscuro": { "pt-BR": "Tema Escuro", en: "Dark Mode" },
   
   // Idioma
-  "portugues": { pt: "Português", en: "Portuguese" },
-  "ingles": { pt: "Inglês", en: "English" }
+  "portugues": { "pt-BR": "Português", en: "Portuguese" },
+  "ingles": { "pt-BR": "Inglês", en: "English" }
 };
 
 type LanguageContextType = {
@@ -45,11 +45,11 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
   const [language, setLanguage] = useState<Language>(() => {
     const savedLanguage = localStorage.getItem("language") as Language | null;
-    return savedLanguage || "pt";
+    return savedLanguage || "pt-BR"; // Valor padrão atualizado para "pt-BR"
   });
 
   const toggleLanguage = () => {
-    const newLanguage = language === "pt" ? "en" : "pt";
+    const newLanguage = language === "pt-BR" ? "en" : "pt-BR"; // Atualizado para "pt-BR"
     localStorage.setItem("language", newLanguage);
     setLanguage(newLanguage);
   };
