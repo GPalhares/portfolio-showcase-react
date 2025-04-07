@@ -23,6 +23,8 @@ const ProjectDetail = () => {
   const { theme } = useTheme();
   const { language } = useLanguage();
 
+  const [isZoomed, setIsZoomed] = useState(false);
+
   useEffect(() => {
     // Encontra o projeto com base no ID da URL
     if (id) {
@@ -44,11 +46,7 @@ const ProjectDetail = () => {
       <Navbar />
 
       <main className="flex-1">
-        <ProjectHero
-          project={project}
-          currentImage={currentImage}
-          language={language}
-        />
+        <ProjectHero project={project} currentImage={0} language={language} />
 
         {/* Content area */}
         <div className="container mx-auto px-4 py-12">
@@ -59,6 +57,8 @@ const ProjectDetail = () => {
                 project={project}
                 currentImage={currentImage}
                 setCurrentImage={setCurrentImage}
+                isZoomed={isZoomed}
+                setIsZoomed={setIsZoomed}
                 language={language}
               />
 

@@ -83,11 +83,11 @@ const HeroSection = () => {
             <div className="relative w-full h-full">
               <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-white shadow-lg rotate-3 hover:rotate-0 transition-transform duration-500">
                 <div className="w-full h-full bg-gradient-to-br from-primary to-blue-700 flex justify-center items-center">
-                  <span className="text-white text-4xl font-bold">FD</span>
+                  <img src="../public/images/profile.jpeg" />
                 </div>
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary rounded-full border-4 border-background flex items-center justify-center shadow-lg">
-                <span className="text-primary font-bold">React</span>
+                <span className="text-primary font-bold">DEV</span>
               </div>
             </div>
           </div>

@@ -22,7 +22,7 @@ const ProjectHero = ({ project, currentImage, language }: ProjectHeroProps) => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
       </div>
 
-      <div className="container mx-auto px-4 h-full flex flex-col justify-end pb-12 relative z-10">
+      <div className="container mx-auto px-4 h-full flex flex-col justify-end mt-5 relative z-10">
         <Link to="/" className="mb-8">
           <Button variant="ghost" className="group">
             <ArrowLeft

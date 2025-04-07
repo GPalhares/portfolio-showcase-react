@@ -121,16 +121,6 @@ const ProjectsSection = () => {
             </Card>
           ))}
         </div>
-
-        <div className="mt-16 text-center">
-          <Button className="btn-primary group">
-            {translations.allProjects}
-            <ArrowRight
-              size={16}
-              className="ml-2 group-hover:translate-x-1 transition-transform"
-            />
-          </Button>
-        </div>
       </div>
     </section>
   );

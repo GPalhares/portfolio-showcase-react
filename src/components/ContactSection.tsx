@@ -1,3 +1,4 @@
+import emailjs from 'emailjs-com';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -62,11 +63,27 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, you would handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    alert('Mensagem enviada com sucesso!');
+
+    emailjs
+      .send(
+        'service_a0wu9iu',
+        'template_d7vpa8c',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        'o8PvbDJEYMYjs819E'
+      )
+      .then(() => {
+        alert('Mensagem enviada com sucesso!');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      })
+      .catch((error) => {
+        console.error('Erro ao enviar:', error);
+        alert('Erro ao enviar mensagem. Tente novamente.');
+      });
   };
 
   return (
@@ -144,21 +161,27 @@ const ContactSection = () => {
                   <p className="font-medium mb-4">{translations.socialMedia}</p>
                   <div className="flex gap-3">
                     <a
-                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://github.com/GPalhares"
                       className="bg-foreground/5 hover:bg-primary/10 hover:text-primary p-3 rounded-lg transition-colors"
                       aria-label="Github"
                     >
                       <Github size={20} />
                     </a>
                     <a
-                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://www.linkedin.com/in/devpalhares/"
                       className="bg-foreground/5 hover:bg-primary/10 hover:text-primary p-3 rounded-lg transition-colors"
                       aria-label="LinkedIn"
                     >
                       <Linkedin size={20} />
                     </a>
                     <a
-                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="mailto:devpalhares@gmail.com"
                       className="bg-foreground/5 hover:bg-primary/10 hover:text-primary p-3 rounded-lg transition-colors"
                       aria-label="Email"
                     >

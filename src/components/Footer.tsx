@@ -34,21 +34,27 @@ const Footer = () => {
 
           <div className="flex gap-4">
             <a
-              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/GPalhares"
               className="text-muted-foreground hover:text-primary bg-foreground/5 hover:bg-primary/10 p-3 rounded-full transition-colors"
               aria-label="Github"
             >
               <Github size={18} />
             </a>
             <a
-              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.linkedin.com/in/devpalhares/"
               className="text-muted-foreground hover:text-primary bg-foreground/5 hover:bg-primary/10 p-3 rounded-full transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin size={18} />
             </a>
             <a
-              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="mailto:devpalhares@gmail.com"
               className="text-muted-foreground hover:text-primary bg-foreground/5 hover:bg-primary/10 p-3 rounded-full transition-colors"
               aria-label="Email"
             >
