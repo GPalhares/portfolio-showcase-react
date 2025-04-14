@@ -172,6 +172,76 @@ export const projectsData: ProjectDetail[] = [
   },
   {
     id: 3,
+    title: 'Plataforma de Checkout',
+    description:
+      'Sistema de checkout customizável para e-commerces, com layout dinâmico e integração com pagamentos.',
+    longDescription:
+      'Essa plataforma foi idealizada para oferecer uma experiência de finalização de compra mais fluida, rápida e personalizável. Atuei nesse projeto part-time ao longo da minha trajetória na HC App Software e Tecnologia, sendo responsável pela estruturação base do sistema. Embora o contrato com a empresa contratante tenha sido encerrado antes da entrega final, o projeto trouxe aprendizados sólidos com Angular e soluções modernas inspiradas em grandes plataformas de checkout.',
+    technicalDetails:
+      'O frontend foi construído majoritariamente com Angular, aproveitando recursos como módulos lazy-loaded, reactive forms, NgRx e services para garantir escalabilidade, organização e performance. No backend, utilizei Node.js com Firebase para estruturar uma API segura e responsiva. Os layouts foram baseados em protótipos do Figma, sempre priorizando responsividade e clareza na jornada de compra.',
+    techDecisions: [
+      {
+        title: 'Layout Dinâmico e Intuitivo 🧭',
+        description:
+          'O design do checkout foi inspirado em experiências consolidadas no mercado, com foco em simplicidade, clareza nas etapas de compra e alta taxa de conversão.',
+      },
+      {
+        title: 'Estrutura Modular com Angular 🧱',
+        description:
+          'Implementei uma arquitetura baseada em módulos lazy-loaded e reutilização de componentes, garantindo organização e melhor performance no carregamento.',
+      },
+      {
+        title: 'Formulários Reativos e Validação Dinâmica 🧾',
+        description:
+          'Utilizei reactive forms do Angular para lidar com formulários complexos de maneira flexível, com validações dinâmicas e adaptáveis ao tipo de produto e usuário.',
+      },
+      {
+        title: 'Backend com Node.js e Firebase 🔧',
+        description:
+          'Implementei a base da API para receber e tratar dados de pedidos, carrinho e pagamento, com foco em escalabilidade e segurança.',
+      },
+      {
+        title: 'Colaboração com Design via Figma 🎨',
+        description:
+          'Interagi com o time de design utilizando Figma como ponte de validação visual, garantindo fidelidade no layout e responsividade.',
+      },
+    ],
+    challenges: [
+      {
+        title: 'Manutenção de Estado entre Etapas do Checkout 🧠',
+        description:
+          'Gerenciar o estado global entre múltiplas etapas do processo de checkout exigiu estratégias eficientes com Services e RxJS, evitando perda de dados e mantendo fluidez.',
+      },
+      {
+        title: 'Adaptação do Layout para Diversos Fluxos de Compra 🧩',
+        description:
+          'Criar componentes que se adaptassem a diferentes tipos de produto e jornada de compra foi um desafio técnico e de UX.',
+      },
+      {
+        title: 'Integração Inicial com Gateways de Pagamento 💳',
+        description:
+          'Estruturei a base para futuras integrações com gateways de pagamento, prevendo suporte a checkout transparente, cartões e carteiras digitais.',
+      },
+    ],
+    images: [
+      '/assets/images/checkout/1.png',
+      '/assets/images/checkout/2.png',
+      '/assets/images/checkout/3.png',
+    ],
+    tags: [
+      'Angular',
+      'Typescript',
+      'Node.js',
+      'JavaScript',
+      'MongoDB',
+      'Checkout',
+      'UX',
+      'Figma',
+    ],
+    completionDate: 'Incompleto (Contrato encerrado em 2024)',
+  },
+  {
+    id: 4,
     title: 'VEFORMA',
     description:
       'Sistema white-label de e-commerce com visualização interativa de produtos em 3D e realidade aumentada.',
@@ -242,75 +312,5 @@ export const projectsData: ProjectDetail[] = [
       'White-label',
     ],
     completionDate: 'Janeiro 2025',
-  },
-  {
-    id: 4,
-    title: 'Plataforma de Checkout',
-    description:
-      'Sistema de checkout customizável para e-commerces, com layout dinâmico e integração com pagamentos.',
-    longDescription:
-      'Essa plataforma foi idealizada para oferecer uma experiência de finalização de compra mais fluida, rápida e personalizável. Atuei nesse projeto part-time ao longo da minha trajetória na HC App Software e Tecnologia, sendo responsável pela estruturação base do sistema. Embora o contrato com a empresa contratante tenha sido encerrado antes da entrega final, o projeto trouxe aprendizados sólidos com Angular e soluções modernas inspiradas em grandes plataformas de checkout.',
-    technicalDetails:
-      'O frontend foi construído majoritariamente com Angular, aproveitando recursos como módulos lazy-loaded, reactive forms, NgRx e services para garantir escalabilidade, organização e performance. No backend, utilizei Node.js com Firebase para estruturar uma API segura e responsiva. Os layouts foram baseados em protótipos do Figma, sempre priorizando responsividade e clareza na jornada de compra.',
-    techDecisions: [
-      {
-        title: 'Layout Dinâmico e Intuitivo 🧭',
-        description:
-          'O design do checkout foi inspirado em experiências consolidadas no mercado, com foco em simplicidade, clareza nas etapas de compra e alta taxa de conversão.',
-      },
-      {
-        title: 'Estrutura Modular com Angular 🧱',
-        description:
-          'Implementei uma arquitetura baseada em módulos lazy-loaded e reutilização de componentes, garantindo organização e melhor performance no carregamento.',
-      },
-      {
-        title: 'Formulários Reativos e Validação Dinâmica 🧾',
-        description:
-          'Utilizei reactive forms do Angular para lidar com formulários complexos de maneira flexível, com validações dinâmicas e adaptáveis ao tipo de produto e usuário.',
-      },
-      {
-        title: 'Backend com Node.js e Firebase 🔧',
-        description:
-          'Implementei a base da API para receber e tratar dados de pedidos, carrinho e pagamento, com foco em escalabilidade e segurança.',
-      },
-      {
-        title: 'Colaboração com Design via Figma 🎨',
-        description:
-          'Interagi com o time de design utilizando Figma como ponte de validação visual, garantindo fidelidade no layout e responsividade.',
-      },
-    ],
-    challenges: [
-      {
-        title: 'Manutenção de Estado entre Etapas do Checkout 🧠',
-        description:
-          'Gerenciar o estado global entre múltiplas etapas do processo de checkout exigiu estratégias eficientes com Services e RxJS, evitando perda de dados e mantendo fluidez.',
-      },
-      {
-        title: 'Adaptação do Layout para Diversos Fluxos de Compra 🧩',
-        description:
-          'Criar componentes que se adaptassem a diferentes tipos de produto e jornada de compra foi um desafio técnico e de UX.',
-      },
-      {
-        title: 'Integração Inicial com Gateways de Pagamento 💳',
-        description:
-          'Estruturei a base para futuras integrações com gateways de pagamento, prevendo suporte a checkout transparente, cartões e carteiras digitais.',
-      },
-    ],
-    images: [
-      '/assets/images/checkout/1.png',
-      '/assets/images/checkout/2.png',
-      '/assets/images/checkout/3.png',
-    ],
-    tags: [
-      'Angular',
-      'Typescript',
-      'Node.js',
-      'JavaScript',
-      'MongoDB',
-      'Checkout',
-      'UX',
-      'Figma',
-    ],
-    completionDate: 'Incompleto (Contrato encerrado em 2024)',
   },
 ];
