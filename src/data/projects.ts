@@ -88,6 +88,7 @@ export const projectsData: ProjectDetail[] = [
       'Javascript',
       'Node.js',
       'Asaas',
+      'Next.js',
       'Docker',
       'Firebase',
       'SEO',
@@ -158,6 +159,8 @@ export const projectsData: ProjectDetail[] = [
     ],
     tags: [
       'React',
+      'Angular',
+      'Typescript',
       'Firebase',
       'Javascript',
       'Material UI',
@@ -290,6 +293,8 @@ export const projectsData: ProjectDetail[] = [
     ],
     tags: [
       'React',
+      'Angular',
+      'Typescript',
       'Node.js',
       'JavaScript',
       'MongoDB',

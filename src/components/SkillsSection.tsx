@@ -26,6 +26,7 @@ const skillCategories: SkillCategory[] = [
       'JavaScript',
       'TypeScript',
       'React',
+      'Angular',
       'Next.js',
       'Flutter',
       'SEO',
