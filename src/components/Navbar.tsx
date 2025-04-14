@@ -101,7 +101,7 @@ const Navbar = () => {
               </span>
             </Toggle>
           </div>
-          <a href="/assets/Gabriel Palhares FrontEnd.pdf" download>
+          <a href="/assets/Gabriel Palhares Front End.pdf" download>
             <Button className="btn-primary flex items-center gap-2">
               <Download size={16} />
               {t('downloadCv')}
