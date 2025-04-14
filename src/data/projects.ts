@@ -159,7 +159,6 @@ export const projectsData: ProjectDetail[] = [
     ],
     tags: [
       'React',
-      'Angular',
       'Typescript',
       'Firebase',
       'Javascript',
