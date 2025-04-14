@@ -249,41 +249,51 @@ export const projectsData: ProjectDetail[] = [
     description:
       'Sistema de checkout customizável para e-commerces, com layout dinâmico e integração com pagamentos.',
     longDescription:
-      'Essa plataforma foi idealizada para oferecer uma experiência de finalização de compra mais fluida, rápida e personalizável. Atuei nesse projeto part-time ao longo da minha trajetória na HC App Software e Tecnologia, sendo responsável pela estruturação base do sistema. Apesar do contrato com a empresa contratante ter sido encerrado antes da entrega final, o projeto contou com diversas soluções modernas inspiradas em grandes plataformas de checkout.',
+      'Essa plataforma foi idealizada para oferecer uma experiência de finalização de compra mais fluida, rápida e personalizável. Atuei nesse projeto part-time ao longo da minha trajetória na HC App Software e Tecnologia, sendo responsável pela estruturação base do sistema. Embora o contrato com a empresa contratante tenha sido encerrado antes da entrega final, o projeto trouxe aprendizados sólidos com Angular e soluções modernas inspiradas em grandes plataformas de checkout.',
     technicalDetails:
-      'Utilizei React e JavaScript no frontend para construir uma interface moderna e flexível. No backend, usei Node.js com MongoDB para estruturar um sistema seguro e escalável. A criação do layout foi feita com base em protótipos no Figma aprovados pela empresa contratada, buscando sempre uma experiência intuitiva e responsiva.',
+      'O frontend foi construído majoritariamente com Angular, aproveitando recursos como módulos lazy-loaded, reactive forms, NgRx e services para garantir escalabilidade, organização e performance. No backend, utilizei Node.js com Firebase para estruturar uma API segura e responsiva. Os layouts foram baseados em protótipos do Figma, sempre priorizando responsividade e clareza na jornada de compra.',
     techDecisions: [
       {
         title: 'Layout Dinâmico e Intuitivo 🧭',
         description:
-          'O design do checkout foi fortemente inspirado em experiências consolidadas no mercado, com foco em simplicidade, clareza nas etapas de compra e alta conversão.',
+          'O design do checkout foi inspirado em experiências consolidadas no mercado, com foco em simplicidade, clareza nas etapas de compra e alta taxa de conversão.',
       },
       {
-        title: 'Componentização Flexível com React ⚛️',
+        title: 'Estrutura Modular com Angular 🧱',
         description:
-          'Estruturei os componentes para serem reutilizáveis e configuráveis, possibilitando adaptações rápidas para diferentes e-commerces.',
+          'Implementei uma arquitetura baseada em módulos lazy-loaded e reutilização de componentes, garantindo organização e melhor performance no carregamento.',
       },
       {
-        title: 'Backend com Node.js e MongoDB 🔧',
+        title: 'Formulários Reativos e Validação Dinâmica 🧾',
         description:
-          'Implementei a base da API para receber e tratar dados de pedidos, carrinho e pagamento, garantindo escalabilidade e estrutura segura para os dados.',
+          'Utilizei reactive forms do Angular para lidar com formulários complexos de maneira flexível, com validações dinâmicas e adaptáveis ao tipo de produto e usuário.',
+      },
+      {
+        title: 'Backend com Node.js e Firebase 🔧',
+        description:
+          'Implementei a base da API para receber e tratar dados de pedidos, carrinho e pagamento, com foco em escalabilidade e segurança.',
       },
       {
         title: 'Colaboração com Design via Figma 🎨',
         description:
-          'Trabalhei junto aos designers utilizando Figma como ferramenta central de comunicação e validação de layout, garantindo fidelidade visual ao implementá-los.',
+          'Interagi com o time de design utilizando Figma como ponte de validação visual, garantindo fidelidade no layout e responsividade.',
       },
     ],
     challenges: [
       {
-        title: 'Layout Dinâmico para Vários Cenários de Checkout 🧩',
+        title: 'Manutenção de Estado entre Etapas do Checkout 🧠',
         description:
-          'Construir um sistema visualmente flexível, capaz de se adaptar a diferentes tipos de produto e jornada de compra, foi um desafio técnico e de UX.',
+          'Gerenciar o estado global entre múltiplas etapas do processo de checkout exigiu estratégias eficientes com Services e RxJS, evitando perda de dados e mantendo fluidez.',
+      },
+      {
+        title: 'Adaptação do Layout para Diversos Fluxos de Compra 🧩',
+        description:
+          'Criar componentes que se adaptassem a diferentes tipos de produto e jornada de compra foi um desafio técnico e de UX.',
       },
       {
         title: 'Integração Inicial com Gateways de Pagamento 💳',
         description:
-          'Estruturei a base para integrações com gateways de pagamento, prevendo futuras expansões como checkout transparente e suporte a carteiras digitais.',
+          'Estruturei a base para futuras integrações com gateways de pagamento, prevendo suporte a checkout transparente, cartões e carteiras digitais.',
       },
     ],
     images: [
@@ -292,7 +302,6 @@ export const projectsData: ProjectDetail[] = [
       '/assets/images/checkout/3.png',
     ],
     tags: [
-      'React',
       'Angular',
       'Typescript',
       'Node.js',
