@@ -1,35 +1,48 @@
-import { Link } from 'react-router-dom';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import { Badge } from '@/components/ui/badge';
-import { Github, ExternalLink, ArrowLeft } from 'lucide-react';
-import { ProjectDetail } from '@/data/projects';
+import { Link } from "react-router-dom";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import { Github, ExternalLink, ArrowLeft } from "lucide-react";
+import { ProjectDetail, projectsData, projectsDataEnglish } from "@/data/projects";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useEffect, useState } from "react";
 
 interface ProjectSidebarProps {
   project: ProjectDetail;
   otherProjects: ProjectDetail[];
-  language: 'pt-BR' | 'en';
+  language: "pt-BR" | "en";
 }
 
 const ProjectSidebar = ({
   project,
   otherProjects,
-  language,
+  
 }: ProjectSidebarProps) => {
+  const { language } = useLanguage();
+  const [myProjects, setMyProjects] = useState([]);
+
+  useEffect(() => {
+    if (language === "en") {
+      setMyProjects(projectsDataEnglish);
+    } else {
+      setMyProjects(projectsData);
+    }
+  }, [language]);
+
   return (
     <div className="sticky top-24 space-y-8">
       {/* Project Info Card */}
       <Card className="overflow-hidden border-0 bg-secondary/20">
         <div className="p-6">
           <h3 className="text-xl font-bold mb-4">
-            {language === 'pt-BR' ? 'Informações do Projeto' : 'Project Info'}
+            {language === "pt-BR" ? "Informações do Projeto" : "Project Info"}
           </h3>
 
           <div className="space-y-4">
             <div>
               <div className="text-sm text-muted-foreground mb-1">
-                {language === 'pt-BR' ? 'Concluído em' : 'Completed'}
+                {language === "pt-BR" ? "Concluído em" : "Completed"}
               </div>
               <div>{project.completionDate}</div>
             </div>
@@ -38,7 +51,7 @@ const ProjectSidebar = ({
 
             <div>
               <div className="text-sm text-muted-foreground mb-1">
-                {language === 'pt-BR' ? 'Tecnologias' : 'Technologies'}
+                {language === "pt-BR" ? "Tecnologias" : "Technologies"}
               </div>
               <div className="flex flex-wrap gap-2 mt-2">
                 {project.tags.map((tag, index) => (
@@ -65,7 +78,7 @@ const ProjectSidebar = ({
                 >
                   <Button className="w-full flex items-center justify-center gap-2">
                     <ExternalLink size={16} />
-                    {language === 'pt-BR' ? 'Ver Site' : 'Live Demo'}
+                    {language === "pt-BR" ? "Ver Site" : "Live Demo"}
                   </Button>
                 </a>
               )}
@@ -82,7 +95,7 @@ const ProjectSidebar = ({
                     className="w-full flex items-center justify-center gap-2"
                   >
                     <Github size={16} />
-                    {language === 'pt-BR' ? 'Código Fonte' : 'Source Code'}
+                    {language === "pt-BR" ? "Código Fonte" : "Source Code"}
                   </Button>
                 </a>
               )}
@@ -94,11 +107,11 @@ const ProjectSidebar = ({
       {/* Navigation between projects */}
       <Card className="border-0 bg-secondary/10 p-6">
         <h3 className="text-xl font-bold mb-4">
-          {language === 'pt-BR' ? 'Outros Projetos' : 'Other Projects'}
+          {language === "pt-BR" ? "Outros Projetos" : "Other Projects"}
         </h3>
 
         <div className="space-y-4">
-          {otherProjects
+          {myProjects
             .filter((p) => p.id !== project.id)
             .slice(0, 2)
             .map((otherProject) => (
@@ -131,9 +144,9 @@ const ProjectSidebar = ({
             to="/"
             className="inline-flex items-center text-sm text-primary hover:text-primary/80 transition-colors mt-2"
           >
-            {language === 'pt-BR'
-              ? 'Ver todos os projetos'
-              : 'See all projects'}
+            {language === "pt-BR"
+              ? "Ver todos os projetos"
+              : "See all projects"}
             <ArrowLeft className="ml-1 rotate-180" size={14} />
           </Link>
         </div>

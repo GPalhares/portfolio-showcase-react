@@ -313,3 +313,294 @@ export const projectsData: ProjectDetail[] = [
     completionDate: 'Janeiro 2025',
   },
 ];
+
+
+export const projectsDataEnglish: ProjectDetail[]=[
+  {
+    id: 1,
+    title: 'Cardapiro',
+    description:
+      'Complete solution for creating digital menus, focused on performance, SEO, and user experience.',
+    longDescription:
+      'Cardapiro is a platform developed for restaurants that want to create and manage digital menus in a practical and efficient way. Built independently, the project already has real users testing the free version. The application includes features such as menu customization, QR Code, integration with WhatsApp ordering, and management of highlights and promotions. Everything was built with a focus on performance, accessibility, and search engine optimization (SEO).',
+    technicalDetails:
+      'Developed with React on the front-end and Node.js on the back-end, using Firebase for database and authentication. The application is optimized with SEO techniques and performance best practices validated by Google Lighthouse. All development and infrastructure were designed to ensure scalability and a good user experience, even on mobile devices.',
+    techDecisions: [
+      {
+        title: 'State Management with Context API 🗂️',
+        description:
+          'I used Context API to manage the global state of the application. Three main contexts were created: Users Context, Tasks Context, and Auth Context. This structure avoids unnecessary requests and ensures persistence across pages.',
+      },
+      {
+        title: 'Custom Hooks 🪝',
+        description:
+          'I implemented custom hooks for data fetching and authentication logic. This reduced prop drilling and improved code organization.',
+      },
+      {
+        title: 'Mobile-First Layout 📱',
+        description:
+          'Developed with a Mobile-First approach to ensure responsiveness. All elements were designed to provide a good experience on mobile devices.',
+      },
+    ],
+    challenges: [
+      {
+        title: 'Performance with Many Products 🍃',
+        description:
+          'I implemented pagination and lazy loading to improve the catalog’s performance with a large volume of products and images. Image loading was optimized to maintain a smooth browsing experience.',
+      },
+      {
+        title: 'Transaction Security 🔒',
+        description:
+          'I used JWT tokens and HTTPS to ensure the security of payment information and user data, along with secure Single Sign-On authentication via Google and Facebook.',
+      },
+      {
+        title: 'Social Media Integration 🤝',
+        description:
+          'Integrating Facebook authentication presented several technical challenges, but it is being finalized successfully, offering users more convenience and secure login.',
+      },
+      {
+        title: 'Performance Optimization for SEO 🚀',
+        description:
+          'Achieving a good Google Lighthouse score was one of the biggest challenges, mainly due to image usage. After multiple optimizations, I reached a score of 90%, ensuring a fast and accessible application.',
+      },
+    ],
+    images: [
+      '/assets/images/cardapiro/1.png',
+      '/assets/images/cardapiro/2.png',
+      '/assets/images/cardapiro/3.png',
+      '/assets/images/cardapiro/4.png',
+      '/assets/images/cardapiro/5.png',
+      '/assets/images/cardapiro/6.png',
+      '/assets/images/cardapiro/7.png',
+      '/assets/images/cardapiro/8.png',
+    ],
+    tags: [
+      'React',
+      'Javascript',
+      'Node.js',
+      'Asaas',
+      'Next.js',
+      'Docker',
+      'Firebase',
+      'SEO',
+      'Lighthouse',
+      'Single Sign-On',
+    ],
+    liveUrl: 'https://cardapiro.com.br/',
+    completionDate: 'In progress',
+  }
+,  {
+  id: 2,
+  title: 'HC App',
+  description:
+    'White-label app platform for casinos with over 3,000 apps and 1 million monthly visits.',
+  longDescription:
+    'HC App is a robust white-label app platform created for online casino influencers to connect with their audience. Through the platform, influencers can host YouTube lives, send notifications, promote custom campaigns, share sports betting strategies, and interact in real-time with their followers. Currently, it supports over 3,000 active apps and receives more than 1 million monthly visits.',
+  technicalDetails:
+    'The system was developed with a focus on scalability and performance. I used React and JavaScript on the frontend, with Firebase for authentication, real-time database, and push notifications. The modular structure allows automated creation of new personalized apps for each influencer. The interface was built using Material UI, Next.js, and React.js, ensuring speed and responsiveness.',
+  techDecisions: [
+    {
+      title: 'Modular Architecture 🧩',
+      description:
+        'The platform was designed to support multiple personalized apps based on a shared core, allowing rapid replication and centralized maintenance.',
+    },
+    {
+      title: 'State Management with Context API 🗂️',
+      description:
+        'I used Context API to maintain global state and avoid unnecessary requests in different parts of the platform, such as authentication, dynamic content, and influencer-specific settings.',
+    },
+    {
+      title: 'Firebase Integration 🔥',
+      description:
+        'Firebase was used for authentication, real-time Firestore, and push notifications, ensuring a dynamic and instant experience.',
+    },
+    {
+      title: 'Real-Time Notifications 📡',
+      description:
+        'I implemented tools so influencers can send instant messages to their users, creating an interactive and engaging experience.',
+    },
+    {
+      title: 'White-Label Admin Panel 👤',
+      description:
+        'Each influencer has an exclusive admin panel with full control over content, promotions, notifications, and app customization.',
+    },
+  ],
+  challenges: [
+    {
+      title: 'Scalability with Many Apps ⚙️',
+      description:
+        'Managing thousands of active apps with performance and stability was a major challenge, requiring continuous optimizations to the database and frontend.',
+    },
+    {
+      title: 'High Real-Time Connectivity 📶',
+      description:
+        'Maintaining simultaneous notifications for thousands of connected users required an efficient and scalable architecture using Firebase and WebSockets.',
+    },
+    {
+      title: 'Payment System Integration and Tokenization 🔐',
+      description:
+        'I implemented a full payment system using the Asaas API, with secure storage of credit card tokens. It was a complex process that required careful attention to security, sensitive data validation, and compliance with best data protection practices.',
+    },
+  ],
+  images: [
+    '/assets/images/hcapp/1.png',
+    '/assets/images/hcapp/2.png',
+    '/assets/images/hcapp/3.png',
+    '/assets/images/hcapp/4.png',
+  ],
+  tags: [
+    'React',
+    'Typescript',
+    'Firebase',
+    'Javascript',
+    'Material UI',
+    'WebSockets',
+    'Next.js',
+  ],
+  liveUrl: 'https://painel.hcapp.com.br/admin',
+  completionDate: 'January 2025',
+},{
+  id: 3,
+  title: 'Checkout Platform',
+  description:
+    'Customizable checkout system for e-commerce, featuring dynamic layout and payment integration.',
+  longDescription:
+    'This platform was designed to offer a smoother, faster, and more customizable checkout experience. I worked on this project part-time during my time at HC App Software and Technology, being responsible for structuring the core of the system. Although the contract with the client company ended before the final delivery, the project brought solid learnings with Angular and modern solutions inspired by leading checkout platforms.',
+  technicalDetails:
+    'The frontend was primarily built with Angular, leveraging features such as lazy-loaded modules, reactive forms, NgRx, and services to ensure scalability, organization, and performance. On the backend, I used Node.js with Firebase to structure a secure and responsive API. The layouts were based on Figma prototypes, always prioritizing responsiveness and clarity in the purchase journey.',
+  techDecisions: [
+    {
+      title: 'Dynamic and Intuitive Layout 🧭',
+      description:
+        'The checkout design was inspired by well-established market experiences, focusing on simplicity, clear purchase steps, and high conversion rates.',
+    },
+    {
+      title: 'Modular Structure with Angular 🧱',
+      description:
+        'I implemented an architecture based on lazy-loaded modules and reusable components, ensuring better organization and improved loading performance.',
+    },
+    {
+      title: 'Reactive Forms and Dynamic Validation 🧾',
+      description:
+        'Used Angular’s reactive forms to handle complex forms flexibly, with validations that adapt dynamically to product and user types.',
+    },
+    {
+      title: 'Backend with Node.js and Firebase 🔧',
+      description:
+        'I built the API foundation to handle order, cart, and payment data, focusing on scalability and security.',
+    },
+    {
+      title: 'Collaboration with Design via Figma 🎨',
+      description:
+        'Worked closely with the design team using Figma as the visual validation bridge, ensuring layout fidelity and responsiveness.',
+    },
+  ],
+  challenges: [
+    {
+      title: 'State Management Across Checkout Steps 🧠',
+      description:
+        'Managing global state across multiple checkout steps required efficient strategies with Services and RxJS, avoiding data loss and ensuring smooth transitions.',
+    },
+    {
+      title: 'Layout Adaptation for Different Purchase Flows 🧩',
+      description:
+        'Creating components that adapt to various product types and checkout journeys was a technical and UX challenge.',
+    },
+    {
+      title: 'Initial Integration with Payment Gateways 💳',
+      description:
+        'I structured the foundation for future integrations with payment gateways, anticipating support for transparent checkout, credit cards, and digital wallets.',
+    },
+  ],
+  images: [
+    '/assets/images/checkout/1.png',
+    '/assets/images/checkout/2.png',
+    '/assets/images/checkout/3.png',
+  ],
+  tags: [
+    'Angular',
+    'Typescript',
+    'Node.js',
+    'JavaScript',
+    'MongoDB',
+    'Checkout',
+    'UX',
+    'Figma',
+  ],
+  completionDate: 'Incomplete (Contract ended in 2024)',
+}
+
+,{
+  id: 4,
+  title: 'VEFORMA',
+  description:
+    'White-label e-commerce system with interactive 3D product visualization and augmented reality.',
+  longDescription:
+    'VEFORMA is a white-label platform aimed at e-commerce businesses seeking to offer immersive shopping experiences through augmented reality. Supporting the display of interactive 3D models, the system allows consumers to view products in real scale directly from their browser, enhancing purchase confidence and consequently improving conversion rates.',
+  technicalDetails:
+    'I participated in the initial months of the VEFORMA project, responsible for the system’s foundational structure. I used React, Next.js, and TypeScript to build the project base, including integration with the modelViewer library for 3D model rendering. The architecture was designed to be responsive, SEO-friendly, and scalable to handle high traffic, supporting multiple custom domains and dynamic routes per client.',
+  techDecisions: [
+    {
+      title: 'Interactive Display with modelViewer 🧊',
+      description:
+        'I used Google’s modelViewer library to render 3D models in real-time in the browser, with AR (augmented reality) support on mobile devices.',
+    },
+    {
+      title: 'White-Label Architecture 🏷️',
+      description:
+        'The modular structure allows multiple stores to share the same codebase, each with its own domain, theme, and custom product catalog.',
+    },
+    {
+      title: 'SSR Rendering and SEO-Friendly ⚙️',
+      description:
+        'I utilized Next.js with Server-Side Rendering (SSR) and static page generation to ensure performance and SEO optimization across all product pages.',
+    },
+    {
+      title: 'Payment Gateway Integration 💳',
+      description:
+        'I included support for various payment methods and transparent checkout, with plans for future integration with platforms like Asaas.',
+    },
+    {
+      title: 'Client Dashboard 🧑‍💼',
+      description:
+        'Each client has an admin panel to manage their products, 3D models, orders, and site settings.',
+    },
+  ],
+  challenges: [
+    {
+      title: 'Cross-Platform Support for 3D Models 📱',
+      description:
+        'Adjusting 3D model rendering for different screen sizes and operating systems (iOS/Android/Desktop) was challenging, especially while maintaining performance and responsiveness.',
+    },
+    {
+      title: 'Handling Heavy Resources 🔄',
+      description:
+        'Optimizing the loading of .glb and .usdz files required techniques like compression, selective preloading, and lazy loading to maintain smooth navigation.',
+    },
+    {
+      title: 'Automated White-Label Customization ⚙️',
+      description:
+        'I needed to create a robust dynamic routing and client customization logic, ensuring security and performance even with multiple active stores simultaneously.',
+    },
+  ],
+  images: [
+    '/assets/images/veforma/1.png',
+    '/assets/images/veforma/2.png',
+    '/assets/images/veforma/3.png',
+    '/assets/images/veforma/4.png',
+    '/assets/images/veforma/5.png',
+    '/assets/images/veforma/6.png',
+    '/assets/images/veforma/7.png',
+  ],
+  tags: [
+    'React',
+    'Next.js',
+    'TypeScript',
+    'modelViewer',
+    '3D',
+    'White-label',
+  ],
+  completionDate: 'January 2025',
+}
+
+]

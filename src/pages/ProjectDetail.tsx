@@ -1,20 +1,21 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useLanguage } from '@/contexts/LanguageContext';
-import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
-import ProjectHero from '@/components/project/ProjectHero';
-import ProjectGallery from '@/components/project/ProjectGallery';
-import ProjectAbout from '@/components/project/ProjectAbout';
-import ProjectTechDecisions from '@/components/project/ProjectTechDecisions';
-import ProjectChallenges from '@/components/project/ProjectChallenges';
-import ProjectSidebar from '@/components/project/ProjectSidebar';
-import ProjectNotFound from '@/components/project/ProjectNotFound';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useTheme } from "@/contexts/ThemeContext";
+import { useLanguage } from "@/contexts/LanguageContext";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import ProjectHero from "@/components/project/ProjectHero";
+import ProjectGallery from "@/components/project/ProjectGallery";
+import ProjectAbout from "@/components/project/ProjectAbout";
+import ProjectTechDecisions from "@/components/project/ProjectTechDecisions";
+import ProjectChallenges from "@/components/project/ProjectChallenges";
+import ProjectSidebar from "@/components/project/ProjectSidebar";
+import ProjectNotFound from "@/components/project/ProjectNotFound";
 import {
   projectsData,
+  projectsDataEnglish,
   ProjectDetail as ProjectDetailType,
-} from '@/data/projects';
+} from "@/data/projects";
 
 const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -26,16 +27,28 @@ const ProjectDetail = () => {
   const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
-    // Encontra o projeto com base no ID da URL
-    if (id) {
-      const foundProject = projectsData.find((p) => p.id === parseInt(id));
-      if (foundProject) {
-        setProject(foundProject);
-        // Reset image index when project changes
-        setCurrentImage(0);
+    if (language === "en") {
+      if (id) {
+        const foundProject = projectsDataEnglish.find(
+          (p) => p.id === parseInt(id)
+        );
+        if (foundProject) {
+          setProject(foundProject);
+          // Reset image index when project changes
+          setCurrentImage(0);
+        }
+      }
+    } else {
+      if (id) {
+        const foundProject = projectsData.find((p) => p.id === parseInt(id));
+        if (foundProject) {
+          setProject(foundProject);
+          // Reset image index when project changes
+          setCurrentImage(0);
+        }
       }
     }
-  }, [id]);
+  }, [id, language]);
 
   if (!project) {
     return <ProjectNotFound language={language} />;

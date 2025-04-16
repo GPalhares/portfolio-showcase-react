@@ -1,23 +1,33 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Github, ExternalLink, Code, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { projectsData } from '@/data/projects';
+import { Card, CardContent } from "@/components/ui/card";
+import { Github, ExternalLink, Code, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { projectsData, projectsDataEnglish } from "@/data/projects";
+import { useEffect, useState } from "react";
 
 const ProjectsSection = () => {
   const { language } = useLanguage();
+  const [myProjects, setMyProjects] = useState([]);
+
+  useEffect(() => {
+    if (language === "en") {
+      setMyProjects(projectsDataEnglish);
+    } else {
+      setMyProjects(projectsData);
+    }
+  }, [language]);
 
   const translations = {
-    portfolio: language === 'pt-BR' ? 'Portfólio' : 'Portfolio',
-    recentProjects: language === 'pt-BR' ? 'Projetos' : 'Projects',
+    portfolio: language === "pt-BR" ? "Portfólio" : "Portfolio",
+    recentProjects: language === "pt-BR" ? "Projetos" : "Projects",
     description:
-      language === 'pt-BR'
-        ? 'Conheça alguns dos projetos reais que desenvolvi utilizando as mais recentes tecnologias web para criar interfaces dinâmicas e funcionais.'
+      language === "pt-BR"
+        ? "Conheça alguns dos projetos reais que desenvolvi utilizando as mais recentes tecnologias web para criar interfaces dinâmicas e funcionais."
         : "Explore some of the real projects I've developed using the latest web technologies to create dynamic and functional interfaces.",
-    viewDetails: language === 'pt-BR' ? 'Ver Detalhes' : 'View Details',
+    viewDetails: language === "pt-BR" ? "Ver Detalhes" : "View Details",
     allProjects:
-      language === 'pt-BR' ? 'Ver Todos Projetos' : 'View All Projects',
+      language === "pt-BR" ? "Ver Todos Projetos" : "View All Projects",
   };
 
   return (
@@ -41,14 +51,14 @@ const ProjectsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectsData.map((project, index) => (
+          {myProjects.map((project, index) => (
             <Card
               key={project.id}
               className="project-card group h-full flex flex-col hover:shadow-lg transition-all duration-300 border-0 overflow-hidden"
               style={{
-                transformStyle: 'preserve-3d',
+                transformStyle: "preserve-3d",
                 transform: `perspective(1000px) rotateY(0deg)`,
-                transition: 'transform 0.5s ease',
+                transition: "transform 0.5s ease",
               }}
             >
               <div className="relative overflow-hidden h-52">
@@ -87,7 +97,7 @@ const ProjectsSection = () => {
                   <div className="flex justify-between items-start">
                     <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                     <span className="text-primary text-xs font-mono px-2 py-1 bg-primary/5 rounded">
-                      #{String(index + 1).padStart(2, '0')}
+                      #{String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
                   <p className="text-muted-foreground mb-4">

@@ -7,7 +7,7 @@ const HeroSection = () => {
 
   const texts = {
     'pt-BR': {
-      role: 'Desenvolvedor Front End',
+      role: 'Desenvolvedor Web',
       title: 'Do conceito ao código: ',
       subtitle:
         'Criação de soluções visuais que geram valor, unindo design, experiência e performance.',
@@ -17,7 +17,7 @@ const HeroSection = () => {
       special: 'entregando valor com tecnologia.',
     },
     en: {
-      role: 'Front End Developer',
+      role: 'Web Developer',
       title: 'From concept to code:',
       subtitle:
         'Creating visual solutions that deliver value by combining design, experience, and performance.',
