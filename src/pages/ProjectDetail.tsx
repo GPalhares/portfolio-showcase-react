@@ -21,31 +21,29 @@ const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [project, setProject] = useState<ProjectDetailType | null>(null);
   const [currentImage, setCurrentImage] = useState(0);
-  const { theme } = useTheme();
   const { language } = useLanguage();
 
   const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
+    if (!id) return;
+
     if (language === "en") {
-      if (id) {
-        const foundProject = projectsDataEnglish.find(
-          (p) => p.id === parseInt(id)
-        );
-        if (foundProject) {
-          setProject(foundProject);
-          // Reset image index when project changes
-          setCurrentImage(0);
-        }
+      const foundProject = projectsDataEnglish.find(
+        (p) => p.id === parseInt(id)
+      );
+      if (foundProject) {
+        setProject(foundProject);
+        
+        // Reset image index when project changes
+        setCurrentImage(0);
       }
     } else {
-      if (id) {
-        const foundProject = projectsData.find((p) => p.id === parseInt(id));
-        if (foundProject) {
-          setProject(foundProject);
-          // Reset image index when project changes
-          setCurrentImage(0);
-        }
+      const foundProject = projectsData.find((p) => p.id === parseInt(id));
+      if (foundProject) {
+        setProject(foundProject);
+        // Reset image index when project changes
+        setCurrentImage(0);
       }
     }
   }, [id, language]);

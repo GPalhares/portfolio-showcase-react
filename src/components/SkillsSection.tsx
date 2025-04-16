@@ -41,13 +41,13 @@ const skillCategories: SkillCategory[] = [
     color: 'from-green-500/20 to-green-600/20',
   },
   {
-    title: 'Banco de Dados',
+    title: 'Databases',
     icon: <Database />,
     skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Firebase', 'SQLite'],
     color: 'from-orange-500/20 to-orange-600/20',
   },
   {
-    title: 'Testes',
+    title: 'Tests',
     icon: <FlaskConical />,
     skills: ['Jest', 'React Testing Library', 'Mocha', 'Chai', 'Puppeteer'],
     color: 'from-purple-500/20 to-purple-600/20',

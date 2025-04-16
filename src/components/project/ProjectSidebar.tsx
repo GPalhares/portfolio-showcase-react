@@ -123,7 +123,7 @@ const ProjectSidebar = ({
                 <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-background/50 transition-colors">
                   <div className="w-12 h-12 rounded overflow-hidden flex-shrink-0">
                     <img
-                      src={`../${otherProject.images[0]}`}
+                      src={`${otherProject.images[0]}`}
                       alt={otherProject.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform"
                     />

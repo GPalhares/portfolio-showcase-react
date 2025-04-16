@@ -15,7 +15,7 @@ const ProjectHero = ({ project, currentImage, language }: ProjectHeroProps) => {
     <div className="relative w-full h-[55vh] bg-gradient-to-b from-secondary to-background overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src={`../${project.images[currentImage]}`}
+          src={`${project.images[currentImage]}`}
           alt={project.title}
           className="w-full h-full object-cover opacity-30"
         />

@@ -1,5 +1,5 @@
-import { ProjectDetail } from '@/data/projects';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ProjectDetail } from "@/data/projects";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 interface ProjectGalleryProps {
   project: ProjectDetail;
@@ -7,7 +7,7 @@ interface ProjectGalleryProps {
   setCurrentImage: (index: number) => void;
   isZoomed: boolean;
   setIsZoomed: (zoom: boolean) => void;
-  language: 'pt-BR' | 'en';
+  language: "pt-BR" | "en";
 }
 
 const ProjectGallery = ({
@@ -19,21 +19,20 @@ const ProjectGallery = ({
   language,
 }: ProjectGalleryProps) => {
   const nextImage = () => {
-    setCurrentImage((prev) =>
-      prev === project.images.length - 1 ? 0 : prev + 1
-    );
+    const next = currentImage === project.images.length - 1 ? 0 : currentImage + 1;
+    setCurrentImage(next);
   };
-
+  
   const prevImage = () => {
-    setCurrentImage((prev) =>
-      prev === 0 ? project.images.length - 1 : prev - 1
-    );
+    const prev = currentImage === 0 ? project.images.length - 1 : currentImage - 1;
+    setCurrentImage(prev);
   };
+ 
 
   return (
     <section>
       <h2 className="text-2xl font-bold mb-6">
-        {language === 'pt-BR' ? 'Galeria' : 'Gallery'}
+        {language === "pt-BR" ? "Galeria" : "Gallery"}
       </h2>
 
       {/* Galeria de miniaturas */}
@@ -43,8 +42,8 @@ const ProjectGallery = ({
             key={index}
             className={`overflow-hidden rounded-lg cursor-pointer border-2 transition-all ${
               currentImage === index
-                ? 'border-primary scale-[1.02]'
-                : 'border-transparent hover:border-primary/30'
+                ? "border-primary scale-[1.02]"
+                : "border-transparent hover:border-primary/30"
             }`}
             onClick={() => {
               setCurrentImage(index);
@@ -52,7 +51,7 @@ const ProjectGallery = ({
             }}
           >
             <img
-              src={`../${image}`}
+              src={`${image}`}
               alt={`${project.title} - imagem ${index + 1}`}
               className="w-full h-32 object-cover hover:scale-105 transition-transform"
             />
@@ -78,7 +77,7 @@ const ProjectGallery = ({
           </button>
 
           <img
-            src={`../${project.images[currentImage]}`}
+            src={`${project.images[currentImage]}`}
             alt={`${project.title} - imagem ampliada`}
             className="max-w-full max-h-[90vh] object-contain"
           />

@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Github, ExternalLink, Code, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { projectsData, projectsDataEnglish } from "@/data/projects";
 import { useEffect, useState } from "react";
@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 const ProjectsSection = () => {
   const { language } = useLanguage();
   const [myProjects, setMyProjects] = useState([]);
+
+  const { lang } = useParams(); // Pega o idioma da rota atual
 
   useEffect(() => {
     if (language === "en") {
@@ -114,7 +116,8 @@ const ProjectsSection = () => {
                     ))}
                   </div>
                 </div>
-                <Link to={`/project/${project.id}`} className="w-full">
+
+                <Link to={`/${lang}/project/${project.id}`} className="w-full">
                   <Button
                     variant="outline"
                     className="w-full flex items-center justify-center gap-2 mt-auto group"

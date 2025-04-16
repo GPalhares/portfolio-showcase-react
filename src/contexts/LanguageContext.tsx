@@ -1,6 +1,6 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
-type Language = 'pt-BR' | 'en'; // Atualizando o tipo para "pt-BR" em vez de "pt"
+type Language = 'pt-BR' | 'en';
 
 type Translations = {
   [key: string]: {
@@ -21,8 +21,8 @@ const translations: Translations = {
   // Footer
   desenvolvedor: {
     'pt-BR':
-      'Desenvolvedor Front End focado em soluções escaláveis, com forte impacto em performance e geração de valor',
-    en: 'Front End Developer focused on scalable solutions, with strong impact on performance and value creation',
+      'Desenvolvedor Web focado em soluções escaláveis, com forte impacto em performance e geração de valor',
+    en: 'Web Developer focused on scalable solutions, with strong impact on performance and value creation',
   },
 
   direitos: {
@@ -57,14 +57,35 @@ export const LanguageProvider = ({
   children: React.ReactNode;
 }) => {
   const [language, setLanguage] = useState<Language>(() => {
-    const savedLanguage = localStorage.getItem('language') as Language | null;
-    return savedLanguage || 'pt-BR'; // Valor padrão atualizado para "pt-BR"
+    // Verificar se existe um idioma no prefixo da URL
+    const pathLanguage = window.location.pathname.split('/')[1];
+    if (pathLanguage === 'en' || pathLanguage === 'pt-BR') {
+      return pathLanguage as Language;
+    }
+    // Se não houver prefixo, define pt-BR por padrão
+    return 'pt-BR';
   });
 
+  useEffect(() => {
+    // Atualizar idioma conforme a URL muda
+    const pathLanguage = window.location.pathname.split('/')[1];
+    if (pathLanguage === 'en' || pathLanguage === 'pt-BR') {
+      setLanguage(pathLanguage as Language);
+    }
+  }, [window.location.pathname]);
+
   const toggleLanguage = () => {
-    const newLanguage = language === 'pt-BR' ? 'en' : 'pt-BR'; // Atualizado para "pt-BR"
-    localStorage.setItem('language', newLanguage);
+    const newLanguage = language === 'pt-BR' ? 'en' : 'pt-BR';
     setLanguage(newLanguage);
+
+    // Atualizar a URL mantendo o idioma corretamente
+    const currentPath = window.location.pathname;
+    const newPathname = currentPath.startsWith('/en') || currentPath.startsWith('/pt-BR')
+      ? currentPath.replace(/^\/(en|pt-BR)/, `/${newLanguage}`) // Substitui o prefixo de idioma
+      : `/${newLanguage}${currentPath}`; // Se não houver prefixo, adiciona o novo
+
+    // Atualizar a URL sem recarregar a página
+    window.history.pushState({}, '', newPathname);
   };
 
   // Função para traduzir textos
