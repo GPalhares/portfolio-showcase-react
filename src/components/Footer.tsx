@@ -45,7 +45,11 @@ const Footer = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.linkedin.com/in/devpalhares/"
+              href={
+                language === "en"
+                  ? "https://www.linkedin.com/in/devpalhares/?locale=en_US"
+                  : "https://www.linkedin.com/in/devpalhares/"
+              }
               className="text-muted-foreground hover:text-primary bg-foreground/5 hover:bg-primary/10 p-3 rounded-full transition-colors"
               aria-label="LinkedIn"
             >

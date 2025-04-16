@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, Download, Globe, Sun, Moon } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Toggle } from '@/components/ui/toggle';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useState, useEffect } from "react";
+import { Menu, X, Download, Globe, Sun, Moon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Toggle } from "@/components/ui/toggle";
+import { useTheme } from "@/contexts/ThemeContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState("hero");
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage, t } = useLanguage();
 
@@ -17,7 +17,7 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 10);
 
       // Update active section based on scroll position
-      const sections = ['hero', 'projects', 'skills', 'contact'];
+      const sections = ["hero", "projects", "skills", "contact"];
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element && window.scrollY >= element.offsetTop - 100) {
@@ -27,32 +27,32 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navLinks = [
-    { href: '#hero', label: t('inicio') },
-    { href: '#projects', label: t('projetos') },
-    { href: '#skills', label: t('habilidades') },
-    { href: '#contact', label: t('contato') },
+    { href: "#hero", label: t("inicio") },
+    { href: "#projects", label: t("projetos") },
+    { href: "#skills", label: t("habilidades") },
+    { href: "#contact", label: t("contato") },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-sm py-3'
-          : 'bg-transparent py-5'
+          ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-sm py-3"
+          : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a
           href="#"
           className={`text-2xl font-bold transition-all ${
-            isScrolled ? 'text-foreground' : 'text-foreground'
+            isScrolled ? "text-foreground" : "text-foreground"
           }`}
         >
           <span className="text-primary">Dev</span>palhares
@@ -66,8 +66,8 @@ const Navbar = () => {
               href={link.href}
               className={`transition-colors relative py-1 ${
                 activeSection === link.href.substring(1)
-                  ? 'text-primary font-medium'
-                  : 'text-foreground hover:text-primary'
+                  ? "text-primary font-medium"
+                  : "text-foreground hover:text-primary"
               }`}
             >
               {link.label}
@@ -80,51 +80,60 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             {/* Botão de Tema */}
             <Toggle
-              aria-label={theme === 'dark' ? t('temaClaro') : t('temaEscuro')}
-              pressed={theme === 'dark'}
+              aria-label={theme === "dark" ? t("temaClaro") : t("temaEscuro")}
+              pressed={theme === "dark"}
               onPressedChange={toggleTheme}
               className="bg-background/10 hover:bg-accent/30 px-3"
             >
-              {theme === 'light' ? <Sun size={18} /> : <Moon size={18} />}
+              {theme === "light" ? <Sun size={18} /> : <Moon size={18} />}
             </Toggle>
 
             {/* Botão de Idioma */}
             <Toggle
-              aria-label={language === 'pt-BR' ? t('ingles') : t('portugues')}
-              pressed={language === 'en'}
+              aria-label={language === "pt-BR" ? t("ingles") : t("portugues")}
+              pressed={language === "en"}
               onPressedChange={toggleLanguage}
               className="bg-background/10 hover:bg-accent/30 px-3"
             >
               <Globe size={18} />
               <span className="ml-1 text-xs font-medium">
-                {language === 'pt-BR' ? 'PT' : 'EN'}
+                {language === "pt-BR" ? "PT" : "EN"}
               </span>
             </Toggle>
           </div>
-          <a href="/assets/Gabriel Palhares Front End.pdf" download>
-            <Button className="btn-primary flex items-center gap-2">
-              <Download size={16} />
-              {t('downloadCv')}
-            </Button>
-          </a>
+          {language === "en" ? (
+            <a href="/assets/Gabriel Palhares Full Stack (en).pdf" download>
+              <Button className="btn-primary flex items-center gap-2">
+                <Download size={16} />
+                {t("Download Resume")}
+              </Button>
+            </a>
+          ) : (
+            <a href="/assets/Gabriel Palhares Full Stack.pdf" download>
+              <Button className="btn-primary flex items-center gap-2">
+                <Download size={16} />
+                {t("Download CV")}
+              </Button>
+            </a>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center gap-2">
           {/* Botão de Tema Mobile */}
           <Toggle
-            aria-label={theme === 'dark' ? t('temaClaro') : t('temaEscuro')}
-            pressed={theme === 'dark'}
+            aria-label={theme === "dark" ? t("temaClaro") : t("temaEscuro")}
+            pressed={theme === "dark"}
             onPressedChange={toggleTheme}
             className="bg-background/10 hover:bg-accent/30"
           >
-            {theme === 'light' ? <Sun size={18} /> : <Moon size={18} />}
+            {theme === "light" ? <Sun size={18} /> : <Moon size={18} />}
           </Toggle>
 
           {/* Botão de Idioma Mobile */}
           <Toggle
-            aria-label={language === 'pt-BR' ? t('ingles') : t('portugues')}
-            pressed={language === 'en'}
+            aria-label={language === "pt-BR" ? t("ingles") : t("portugues")}
+            pressed={language === "en"}
             onPressedChange={toggleLanguage}
             className="bg-background/10 hover:bg-accent/30"
           >
@@ -151,8 +160,8 @@ const Navbar = () => {
                 href={link.href}
                 className={`text-foreground py-3 border-b border-gray-100 dark:border-gray-800 ${
                   activeSection === link.href.substring(1)
-                    ? 'text-primary font-medium'
-                    : 'hover:text-primary'
+                    ? "text-primary font-medium"
+                    : "hover:text-primary"
                 }`}
                 onClick={() => {
                   toggleMenu();
@@ -165,7 +174,7 @@ const Navbar = () => {
 
             <Button className="btn-primary w-full flex items-center justify-center gap-2 mt-2">
               <Download size={16} />
-              {t('downloadCv')}
+              {t("downloadCv")}
             </Button>
           </div>
         </div>

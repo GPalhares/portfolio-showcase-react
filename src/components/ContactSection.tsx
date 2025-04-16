@@ -1,9 +1,9 @@
-import emailjs from 'emailjs-com';
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent } from '@/components/ui/card';
+import emailjs from "emailjs-com";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Github,
   Linkedin,
@@ -12,46 +12,46 @@ import {
   MapPin,
   Send,
   ArrowRight,
-} from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
+} from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactSection = () => {
   const { language } = useLanguage();
 
   const translations = {
-    contact: language === 'pt-BR' ? 'Contato' : 'Contact',
-    title: language === 'pt-BR' ? 'Vamos Conversar' : `Let's talk`,
+    contact: language === "pt-BR" ? "Contato" : "Contact",
+    title: language === "pt-BR" ? "Vamos Conversar" : `Let's talk`,
     subtitle:
-      language === 'pt-BR'
-        ? 'Aberto a novos projetos, oportunidades profissionais ou uma boa conversa sobre desenvolvimento web.'
-        : 'Open to new projects, professional opportunities, or a good conversation about web development.',
+      language === "pt-BR"
+        ? "Aberto a novos projetos, oportunidades profissionais ou uma boa conversa sobre desenvolvimento web."
+        : "Open to new projects, professional opportunities, or a good conversation about web development.",
     infoContact:
-      language === 'pt-BR' ? 'Informações de Contato' : 'Contact Info',
-    phone: language === 'pt-BR' ? 'Telefone' : 'Phone',
-    location: language === 'pt-BR' ? 'Localização' : 'Location',
-    locationValue: language === 'pt-BR' ? 'Patos de Minas - MG' : 'Brazil',
-    socialMedia: language === 'pt-BR' ? 'Redes Sociais' : 'Social Links',
+      language === "pt-BR" ? "Informações de Contato" : "Contact Info",
+    phone: language === "pt-BR" ? "Telefone" : "Phone",
+    location: language === "pt-BR" ? "Localização" : "Location",
+    locationValue: language === "pt-BR" ? "Patos de Minas - MG" : "Brazil",
+    socialMedia: language === "pt-BR" ? "Redes Sociais" : "Social Links",
 
-    sendMessage: language === 'pt-BR' ? 'Envie uma Mensagem' : 'Send a Message',
-    name: language === 'pt-BR' ? 'Nome / Empresa' : 'Name / Company',
-    namePlaceholder: language === 'pt-BR' ? 'Seu Nome' : 'Your Name',
-    emailPlaceholder: language === 'pt-BR' ? 'Seu Email' : 'Your E-mail',
-    topic: language === 'pt-BR' ? 'Assunto' : 'Subject',
+    sendMessage: language === "pt-BR" ? "Envie uma Mensagem" : "Send a Message",
+    name: language === "pt-BR" ? "Nome / Empresa" : "Name / Company",
+    namePlaceholder: language === "pt-BR" ? "Seu Nome" : "Your Name",
+    emailPlaceholder: language === "pt-BR" ? "Seu Email" : "Your E-mail",
+    topic: language === "pt-BR" ? "Assunto" : "Subject",
     topicPlaceholder:
-      language === 'pt-BR' ? 'Assunto da mensagem' : 'Message subject',
-    message: language === 'pt-BR' ? 'Mensagem' : 'Message',
+      language === "pt-BR" ? "Assunto da mensagem" : "Message subject",
+    message: language === "pt-BR" ? "Mensagem" : "Message",
     messagePlaceholder:
-      language === 'pt-BR'
-        ? 'Escreva sua mensagem aqui...'
-        : 'Write your message here...',
-    buttonSent: language === 'pt-BR' ? 'Enviar Mensagem' : 'Send Message',
+      language === "pt-BR"
+        ? "Escreva sua mensagem aqui..."
+        : "Write your message here...",
+    buttonSent: language === "pt-BR" ? "Enviar Mensagem" : "Send Message",
   };
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const handleChange = (
@@ -66,23 +66,23 @@ const ContactSection = () => {
 
     emailjs
       .send(
-        'service_a0wu9iu',
-        'template_d7vpa8c',
+        "service_a0wu9iu",
+        "template_d7vpa8c",
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
         },
-        'o8PvbDJEYMYjs819E'
+        "o8PvbDJEYMYjs819E"
       )
       .then(() => {
-        alert('Mensagem enviada com sucesso!');
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        alert("Mensagem enviada com sucesso!");
+        setFormData({ name: "", email: "", subject: "", message: "" });
       })
       .catch((error) => {
-        console.error('Erro ao enviar:', error);
-        alert('Erro ao enviar mensagem. Tente novamente.');
+        console.error("Erro ao enviar:", error);
+        alert("Erro ao enviar mensagem. Tente novamente.");
       });
   };
 
@@ -172,7 +172,11 @@ const ContactSection = () => {
                     <a
                       target="_blank"
                       rel="noopener noreferrer"
-                      href="https://www.linkedin.com/in/devpalhares/"
+                      href={
+                        language === "en"
+                          ? "https://www.linkedin.com/in/devpalhares/?locale=en_US"
+                          : "https://www.linkedin.com/in/devpalhares/"
+                      }
                       className="bg-foreground/5 hover:bg-primary/10 hover:text-primary p-3 rounded-lg transition-colors"
                       aria-label="LinkedIn"
                     >
